@@ -6,18 +6,27 @@ import './App.css';
 
 class App extends Component {
   state = {
-  query: '',
+    query: '',
+    images: [],
   }
   handleFormSubmit = value => {
     this.setState({ query: value });
   };
   render() {
-      return (
-        <div className="App">
-          <Searchbar onSubmit={this.handleFormSubmit} />
-          <ImageGallery/>
-    </div>
-   );
+    return (
+      <div className="App">
+        <Searchbar onSubmit={this.handleFormSubmit} />
+        {this.state.images.length > 1 && (
+          <>
+            <ImageGallery
+              images={this.state.images}
+              onModalClick={this.modalToggle}
+            />
+            
+          </>
+        )}
+      </div>
+    );
   }
 
 }

@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import ImageGalleryItem from '../ImageGalleryItem';
 import s from './ImageGallery.module.css';
+import PropTypes from 'prop-types';
 
 
 class ImageGallery extends Component {
@@ -28,4 +29,9 @@ class ImageGallery extends Component {
         );
     }
 }
+ImageGallery.propTypes = {
+    images: PropTypes.arrayOf(PropTypes.object),
+    onModalClick: PropTypes.func.isRequired,
+};
+
 export default ImageGallery;

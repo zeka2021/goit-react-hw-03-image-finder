@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import s from './Modal.module.css';
+import PropTypes from 'prop-types';
 
 class Modal extends Component {
   state = {
@@ -42,5 +43,9 @@ class Modal extends Component {
     );
   }
 }
+Modal.propTypes = {
+  onModalClick: PropTypes.func.isRequired,
+  currentImage: PropTypes.object.isRequired,
+};
 
 export default Modal;

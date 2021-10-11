@@ -1,15 +1,18 @@
 import { Component } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import ImageGalleryItem from '../ImageGalleryItem';
+import s from './ImageGallery.module.css';
+
 
 class ImageGallery extends Component {
     state = {
-    images: '',
+        images: '',
+        onModalClick: '',
     }
    
     render() {
         return (
-            <ul className="ImageGallery">
+            <ul className={s.ImageGallery}>
                 {this.props.images.map(
                     ({ id, webformatURL, largeImageURL, tags }, index) => (
                         <ImageGalleryItem

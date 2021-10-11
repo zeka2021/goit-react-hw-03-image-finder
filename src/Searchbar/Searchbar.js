@@ -1,8 +1,10 @@
 import { Component } from 'react';
+import s from './Searchbar.module.css';
 
 class Searchbar extends Component {
      state = {
-    query: '',
+         query: '',
+         onSubmit: '',
     };
     
   handleChange = e => {
@@ -12,25 +14,20 @@ class Searchbar extends Component {
     };
 
     handleSubmit = e => {
-        e.preventDefault();
-
-        if (this.state.query.trim() === '') {
-            alert('Введите правильный запрос')
-            return;
-        }
+        e.preventDefault();       
         this.props.onSubmit(this.state.query);
     };
     
     render(){
         return (
-            <header className="Searchbar">
-                <form onSubmit={this.handleSubmit} className="SearchForm">
-                    <button type="submit" className="SearchForm-button">
-                        <span className="SearchForm-button-label">Search</span>
+            <header className={s.Searchbar}>
+                <form onSubmit={this.handleSubmit} className={s.SearchForm}>
+                    <button type="submit" className={s.SearchFormButton}>
+                        <span className={s.SearchFormButtonLabel}>Search</span>
                     </button>
 
                     <input
-                        className="SearchForm-input"
+                        className={s.SearchFormInput}
                         type="text"
                         autocomplete="off"
                         name="query"
